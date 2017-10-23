@@ -4,6 +4,7 @@
 	<title>markus tag analyzer</title>
 	<meta charset="UTF-8">
 	<script type="text/javascript" src='js/jquery-3.2.1.min.js'></script>
+	<script type="text/javascript" src='js/papaparse.js'></script>
 	<script type="text/javascript" src='js/parse_csv.js'></script>
 		
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -12,7 +13,7 @@
 <body>
 	<div class="row">
 		<div class="col-lg-6">
-		    <div class="input-group">
+		    <div class="input-group" id="input_group">
 		     	
 				<input type="file" id = 'file_upload' class="upl" placeholder="請上傳檔案">
 				
@@ -23,6 +24,53 @@
 		      	</span> -->
 		    </div>
 	  	</div>
+	</div>
+	<br><br>
+	<div class="row">
+		<div class="col-lg-4">
+			<div id = 'div_interface' style="display: none">
+				<div id='div_category' >
+					選擇種類:
+					<select id="category" onchange="filter_tag(this.value)">
+						
+					</select>
+				</div>
+
+				<div id='div_person' style="display: none">
+					人名:
+					<select id="person" >
+						
+					</select>
+				</div>
+
+				<div id='div_place' style="display: none">
+					地名:
+					<select id="place" >
+						
+					</select>
+				</div>
+				
+				<div id="div_term" style="display: none">
+					詞彙:
+					<select id="term" >
+					
+					</select>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-lg-8" >
+			
+			
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-2">
+			<div id="div_content">
+				
+			</div>
+		</div>
 	</div>
 	
 </body>

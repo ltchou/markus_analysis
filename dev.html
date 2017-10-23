@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>markus tag analyzer</title>
+	<meta charset="UTF-8">
+	<script src='js/jquery-3.2.1.min.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/cpexcel.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/jszip.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/xlsx.core.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/xlsx.full.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/xlsx.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.8/xlsx.min.js"></script>
+	<script src='js/parse_excel.js'></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<style type="text/css">
+		.row{
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="row">
+		<div class="col-lg-2">
+		    <div class="input-group" id="input_group">
+		     	
+				<input type="file" id = 'file_upload' class="upl" placeholder="請上傳檔案">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" onclick="upload()">上傳</button>
+		      	<!-- <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..."> -->
+		      	<!-- <span class="input-group-btn">
+		        	<button class="btn btn-secondary" type="button">Go!</button>
+		      	</span> -->
+		      </span>
+		    </div>		    
+	  	</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-lg-6" id="div_sheet" style="display: none">
+			請選擇表單:
+			<select id="sheet_name" onchange="parse_content(this.value)">
+				
+			</select>
+		</div>		
+	</div>
+	<br>
+
+	<div class="row">
+		<div class="col-lg-6" id="div_title" style="display: none">
+			請選擇欄位1:
+			<select id="t1" onchange="get_data(this.value,this.id,1)">
+				
+			</select>
+			
+			<br><br>
+			<button class="btn btn-success" onclick="add_col()" id="add_col">增加欄位</button>
+			<br><br>
+<!-- 			請選擇地名欄位:
+			<select id="place_name" onchange="get_data(this.value,this.id,2)">
+				
+			</select>
+
+			<br><br><br>
+			請選擇人名欄位:
+			<select id="person_name" onchange="get_data(this.value,this.id,3)">
+				
+			</select> -->
+		</div>
+	</div>
+	<div class="row" id="data_content" style="display: none">
+		<div class="row">
+			<div class="col-lg-1">
+				<button class="btn btn-primary" type="button" onclick="do_filter()">篩選</button>	
+			</div>
+		</div>
+
+		<div class="col-lg-1" id="content1" >
+		</div>
+
+		<div class="col-lg-1" id="place_content" >
+		</div>
+
+		<div class="col-lg-1" id="person_content" >
+		</div>
+
+	</div>
+	
+	<br>
+
+	<!-- <div class="row">
+		<div class="col-lg-6" id="div_title" style="display: none">
+			請選擇欄位:
+			<select id="title_name" onchange="get_data(this.value)">
+				
+			</select>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-lg-6" id = "div_data" style="display: none;"> 
+			資料內容:
+			<div id="data_name">
+				
+			</div>
+		</div>		
+	</div> -->
+</body>
+</html>
+
